@@ -9,8 +9,7 @@ class PokemonCard extends Component {
     static defaultProps = {
         onClick: Function.prototype,
         card: {},
-        type: PokemonCard.DEFAULT,
-        active: false
+        type: PokemonCard.DEFAULT
     };
 
     constructor(props) {
@@ -22,10 +21,14 @@ class PokemonCard extends Component {
         this.props.onClick(this.props.card);
     }
 
+    cardIsActive() {
+        return this.props.type === PokemonCard.ACTIVE;
+    }
+
     buildClassName() {
         const base = "PokemonCard";
         var classNames = [base];
-        if (this.props.type === PokemonCard.ACTIVE) {
+        if (this.cardIsActive()) {
             const active = base+"-active";
             classNames.push(active);
         }
@@ -37,7 +40,12 @@ class PokemonCard extends Component {
     }
 
     render() {
-        return (<div className={this.buildClassName()} onClick={this.handleClick}></div>);
+        const isActive = this.cardIsActive();
+        return (<div
+            className={this.buildClassName()}
+            onClick={this.handleClick}>
+            { isActive && this.props.card.data }
+        </div>);
     }
 }
 
