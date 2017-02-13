@@ -4,28 +4,23 @@ import './PokemonCard.css';
 class PokemonCard extends Component { 
     static defaultProps = {
         onClick: Function.prototype,
+        active: false
     };
 
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        this.state = {
-            active: false,
-        };
     }
 
     handleClick() {
-        this.setState({
-            active: !this.state.active,
-        });
-        this.props.onClick();
+        this.props.onClick(this.props.type);
     }
 
     buildClassName() {
         const base = "PokemonCard";
         const active = base+"-active";
         var classNames = [base];
-        if (this.state.active) {
+        if (this.props.active) {
             classNames.push(active);
         }
         return classNames.join(' ');
