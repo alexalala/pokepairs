@@ -26,14 +26,14 @@ class GameArea extends Component {
     generateCards() {
         const { active } = this.state;
         var cards = [];
-        for ( var i = 0; i < 9; i++ ) {
+        for ( var i = 0; i < 16; i++ ) {
             cards.push(<PokemonCard type={i} active={active.indexOf(i) !== -1} onClick={this.handleCardClick} key={i}/>);
         }
         return cards;
     }
     buildGrid(cards) {
         return cards.reduce((reduction, val, i) => {
-            var row = (i+1)%3;
+            var row = (i+1)%4;
             reduction[row] = reduction[row] || [];
             reduction[row].push(val);
             return reduction;

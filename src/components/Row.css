@@ -1,5 +1,5 @@
 .Row {
-	width: 360px;
+	width: 480px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
