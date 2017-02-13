@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Row from './Row';
 import PokemonCard from './PokemonCard';
 import Game from '../lib/Game.js';
+import Button from './Button'
+
+import './GameArea.css'
 
 class GameArea extends Component {
     constructor(props) {
@@ -12,11 +15,13 @@ class GameArea extends Component {
             game: new Game(['a', 'b', 'c'])
         };
     }
+
     handleCardClick(card) {
         const { game } = this.state;
         game.activate(card);
         this.setState({game});
     }
+
     buildGrid() {
         const { game } = this.state;
         return game.deck.reduce((reduction, gameCard, i) => {
@@ -45,8 +50,19 @@ class GameArea extends Component {
         const cards = this.buildGrid();
         return cards.map((row, i) => <Row key={i}>{ row }</Row>);
     }
+    buildClassName() {
+        const base = "GameArea";
+        var classNames = [base];
+        if (this.props.className) {
+            classNames.push(this.props.className);
+        }
+        return classNames.join(' ');
+    }
     render() {
-        return (<Row className="GameArea">{ this.renderRows() }</Row>);
+        return (<div className={this.buildClassName()}>
+                    <Button />
+                    { this.renderRows() }
+                </div>);
     }
 }
 

@@ -18,6 +18,15 @@
   font-size: large;
 }
 
+h1 {
+  color: #80A2A2;
+  font-size: 70px;
+}
+
+.App-GameArea {
+  margin: 0 auto;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
