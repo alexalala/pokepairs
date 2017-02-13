@@ -3,6 +3,8 @@ import Row from './Row';
 import PokemonCard from './PokemonCard';
 import Button from './button'
 
+import './GameArea.css'
+
 class GameArea extends Component {
     generateCards() {
         var cards = [];
@@ -23,11 +25,19 @@ class GameArea extends Component {
         const cards = this.buildGrid(this.generateCards());
         return cards.map((row, i) => <Row key={i}>{ row }</Row>);
     }
+    buildClassName() {
+        const base = "GameArea";
+        var classNames = [base];
+        if (this.props.className) {
+            classNames.push(this.props.className);
+        }
+        return classNames.join(' ');
+    }
     render() {
-        return (<Row className="GameArea">
+        return (<div className={this.buildClassName()}>
                     <Button />
                     { this.renderRows() }
-                </Row>);
+                </div>);
     }
 }
 

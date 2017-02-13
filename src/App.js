@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
       	<h1>Pokepairs</h1>
-        <GameArea />
+        <GameArea className="App-GameArea" />
       </div>
     );
   }

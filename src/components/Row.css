@@ -1,4 +1,7 @@
 .Row {
-    background-color: yellow;
-    border: 2px solid black;
+	width: 360px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
