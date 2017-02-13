@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PokemonCard from './PokemonCard';
+import Button from './button'
 
 class GameArea extends Component {
     renderCards() {
@@ -10,7 +11,10 @@ class GameArea extends Component {
         return cards;
     }
     render() {
-        return (<div className="GameArea">{ this.renderCards() }</div>);
+        return (<div className="GameArea">
+                    <Button />
+                    { this.renderCards() }
+                </div>);
     }
 }
 
